@@ -14,6 +14,7 @@ const Home = () => {
             alert("Debe ingresar un valor")
         } else {
             setTodos(todos.concat([input]));
+            setInput("");
         }
     }
 
@@ -25,9 +26,10 @@ const Home = () => {
     return (
         <div className="container">
 
-            <div className="padding-superior m-auto">
-                <h5 className="pb-3">
-                    A continuación ingrese su tarea a realizar</h5>
+            <div className="m-auto tamañoDiv padding-superior ">
+                <div className="p-4 color-de-fondo">
+                <h4 className="pb-3 text-light">
+                    A continuación ingrese su tarea a realizar</h4>
                 <div className="input-group mb-3">
                     <button onClick={handleClick}
                         className="btn btn-success"
@@ -37,6 +39,7 @@ const Home = () => {
                         type="text"
                         className="form-control"
                         placeholder=""
+                        value={input}
                         aria-label="Example text with button addon"
                         aria-describedby="button-addon1"/>
                 </div>
@@ -46,7 +49,7 @@ const Home = () => {
                     todos.map((item, index) => (
                         <div className="row d-flex p-2">
 							<div className="col-6">
-                                <h5>{item}</h5>
+                                <h5 class>{item}</h5>
                             </div>
 							<div className="col-6 text-end">
                             <i class="fas fa-trash-alt align-items-end "
@@ -58,7 +61,7 @@ const Home = () => {
                     ))
                 } </div>
                 <div id="contadorTodos">
-                    <p>Faltan por realizar {
+                    <p className="text-light">Faltan por realizar {
                         todos.length
                     }
                         &nbsp;tareas</p>
@@ -68,6 +71,7 @@ const Home = () => {
                     type="button"
                     id="button-addon1">Borrar Todo</button>
             </div>
+        </div>
         </div>
     );
 };
